@@ -1,0 +1,16 @@
+<%- include('header.ejs') %>
+<div class="container mx-0 py-5 h-100">
+    <form  action="/delete" method="post" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+        <div class="col-12">
+        <div class="form-inline">
+            <input type="number" name="id" id="id" style="width:40vw" placeholder="Enter a Id here" class="form-control" required/>
+        </div>
+        </div>
+
+        <div class="col-12">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
+</div>
+
+<%- include('footer.ejs') %>

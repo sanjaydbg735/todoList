@@ -1,0 +1,110 @@
+<%- include ('header.ejs') %>
+
+    <div  style="background-color: #ffff;">
+        <div class="container mx-0 py-5 h-100" style="display:flex">
+          <div class="col col-lg-9 col-xl-8">
+            <div class="card rounded-3 m-1">
+              <div class="card-body p-4" style="background-color: rgb(242, 236, 202);">
+    
+                <h4 class="text-center my-3 pb-3">Todo List</h4>
+
+                <script>
+                 
+                </script>
+
+                <form  action="/" method="post" id="adding" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                  <div class="col-12">
+                    <div class="form-inline">
+                      <textarea type="text" name="todo" id="todo" style="width:40vw" placeholder="Enter a task here" class="form-control" required></textarea>
+                    </div>
+                  </div>
+    
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                  </div>
+                </form>
+
+                <table class="table mb-4">
+                  <thead>
+                    <tr>
+                      <th scope="col">Item Id.</th>
+                      <th scope="col">Todo item</th>
+                      <th scope="col">Action</th>
+                      <th update="col"></th>
+                      <th delete="col"></th>
+                      <th finised="col"></th>
+
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for (var i = 0; i < (data.length);  i++) { %>
+                        <tr>
+                            <td><%=data[i].id %></td>
+                            <td><%= data[i].todo%></td>
+                            <td>
+                      
+                              <a href="/update/<%= data[i].id %>">
+                                <image src="https://icons.iconarchive.com/icons/designcontest/vintage/24/Pencil-icon.png" width="22px" hieght="30px" />
+                              </a>
+                            </td>
+                            <td>
+                      
+                              <a href="/delete/<%= data[i].id %>">
+                                <image src="https://icons-for-free.com/iconfiles/png/512/delete+24px-131985190578721347.png" width="22px" hieght="30px" />
+                              </a>
+                            </td>
+                            <td>
+                      
+                              <a href="/finised/<%=data[i].id%>">
+                                <image src="https://icons.iconarchive.com/icons/raindropmemory/summer-love-cicadas/32/Finished-icon.png" width="22px" hieght="30px" />
+                              </a>
+                            </td>
+                           
+                        </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+                <a href="/deleteAll_Todos"><button onclick="" type="submit"  style="width:51vw"class="btn btn-danger m-auto">Delete All</button></a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col col-lg-5 col-xl-5">
+            <div class="card rounded-3 m-1">
+              <div class="card-body p-4 " style="background-color: rgb(215, 241, 194);">
+    
+                <h4 class="text-center my-3 pb-3">Finished work</h4>
+              
+                <table class="table mb-4">
+                  <thead>
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">Todo item</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    <% for (var i = 0; i < (data2.length);  i++) { %>
+                      <tr>
+                          <td><%=data2[i].id %></td>
+                          <td><%= data2[i].todo%></td>
+                      </tr>
+                  <% } %>
+
+                  </tbody>
+                </table>
+
+
+                <a href="/deleteAll_Finised_List"><button  type="submit"  style="width:30vw"class="btn btn-danger m-auto">Delete All</button></a>
+                
+    
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+<%- include('footer.ejs') %>
