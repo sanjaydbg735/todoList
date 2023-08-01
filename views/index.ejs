@@ -1,10 +1,10 @@
-<%- include ('header.ejs') %>
+<%- include ('headerHome.ejs') %>
 
     <div  style="background-color: #ffff;">
-        <div class="container mx-0 py-5 h-100" style="display:flex">
-          <div class="col col-lg-9 col-xl-8">
+        <div class="container mx-0 py-10 h-100 ml-0 pl-0" style="display:flex">
+          <div class="col col-xl-9">
             <div class="card rounded-3 m-1">
-              <div class="card-body p-4" style="background-color: rgb(242, 236, 202);">
+              <div class="card-body p-3" style="background-color: rgb(242, 236, 202);margin-left:-10px; width:60vw;">
     
                 <h4 class="text-center my-3 pb-3">Todo List</h4>
 
@@ -12,16 +12,14 @@
                  
                 </script>
 
-                <form  action="/" method="post" id="adding" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
-                  <div class="col-12">
+                <form  action="/home" method="post" id="adding" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                  <div class="col-12" >
                     <div class="form-inline">
-                      <textarea type="text" name="todo" id="todo" style="width:40vw" placeholder="Enter a task here" class="form-control" required></textarea>
+                      <textarea type="text" name="todo" id="todo" style="width:50vw" placeholder="Enter a task here" class="form-control" required></textarea>
+                      <button type="submit" class="btn ml-1 " style="width:100px;padding:15px ;background-color: rgb(79, 230, 137)">Add</button>
                     </div>
                   </div>
-    
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Add</button>
-                  </div>
+  
                 </form>
 
                 <table class="table mb-4">
@@ -44,19 +42,19 @@
                             <td><%= data[i].todo%></td>
                             <td>
                       
-                              <a href="/update/<%= data[i].id %>">
+                              <a href="/home/update/<%= data[i].id %>">
                                 <image src="https://icons.iconarchive.com/icons/designcontest/vintage/24/Pencil-icon.png" width="22px" hieght="30px" />
                               </a>
                             </td>
                             <td>
                       
-                              <a href="/delete/<%= data[i].id %>">
+                              <a href="/home/delete/<%= data[i].id %>">
                                 <image src="https://icons-for-free.com/iconfiles/png/512/delete+24px-131985190578721347.png" width="22px" hieght="30px" />
                               </a>
                             </td>
                             <td>
                       
-                              <a href="/finised/<%=data[i].id%>">
+                              <a href="/home/finised/<%=data[i].id%>">
                                 <image src="https://icons.iconarchive.com/icons/raindropmemory/summer-love-cicadas/32/Finished-icon.png" width="22px" hieght="30px" />
                               </a>
                             </td>
@@ -65,17 +63,17 @@
                     <% } %>
                   </tbody>
                 </table>
-                <a href="/deleteAll_Todos"><button onclick="" type="submit"  style="width:51vw"class="btn btn-danger m-auto">Delete All</button></a>
+                <a href="/home/deleteAll_Todos"><button onclick="" type="submit"class="btn m-auto"  style="width:50vw;background-color: rgb(250, 134, 114)">Delete All</button></a>
               </div>
             </div>
           </div>
 
 
-          <div class="col col-lg-5 col-xl-5">
-            <div class="card rounded-3 m-1">
-              <div class="card-body p-4 " style="background-color: rgb(215, 241, 194);">
+          <div class="col m-1,pl-0">
+            <div class="card rounded-1 mx-4">
+              <div class="card-body p-4 mt-1 " style="background-color: rgb(215, 241, 194);width:39vw;">
     
-                <h4 class="text-center my-3 pb-3">Finished work</h4>
+                <h4 class="text-center my-3 pb-3 ">Finished work</h4>
               
                 <table class="table mb-4">
                   <thead>
@@ -97,7 +95,7 @@
                 </table>
 
 
-                <a href="/deleteAll_Finised_List"><button  type="submit"  style="width:30vw"class="btn btn-danger m-auto">Delete All</button></a>
+                <a href="/home/deleteAll_Finised_List"><button  type="submit" class="btn m-auto"  style="width:30vw; background-color: rgb(250, 134, 114)">Delete All</button></a>
                 
     
               </div>
